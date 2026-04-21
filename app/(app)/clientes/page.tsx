@@ -27,7 +27,9 @@ export default function ClientesPage() {
       .eq('status', 'pendente')
       .lt('due_date', new Date().toISOString());
 
-    const overdueNames = new Set(overdueData?.map(d => d.sales?.customer_name));
+    const overdueNames = new Set(
+      (overdueData as any[])?.map(d => d.sales?.customer_name).filter(Boolean) || []
+    );
 
     if (custData) {
       const enriched = custData.map(c => ({
