@@ -3,11 +3,14 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 
-// Se as variáveis estiverem faltando durante o build (SSR), 
-// criamos um cliente com valores fictícios apenas para não quebrar o build.
-// No navegador (runtime), o Next.js injetará os valores reais.
+// No servidor, durante o build, usamos placeholders para evitar erros fatais.
+// No navegador, as variáveis reais (injetadas via GitHub Secrets) serão usadas.
 const isServer = typeof window === 'undefined'
-const finalUrl = !supabaseUrl && isServer ? 'https://placeholder.supabase.co' : supabaseUrl
-const finalKey = !supabaseAnonKey && isServer ? 'placeholder' : supabaseAnonKey
+const url = !supabaseUrl && isServer ? 'https://placeholder.supabase.co' : supabaseUrl
+const key = !supabaseAnonKey && isServer ? 'placeholder' : supabaseAnonKey
 
-export const supabase = createClient(finalUrl, finalKey)
+export const supabase = createClient(url, key, {
+  auth: {
+    persistSession: false // Evita problemas de hidratação com localStorage no SSR
+  }
+})
