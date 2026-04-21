@@ -33,6 +33,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Check Secrets Presence (Diagnostic)
+        run: |
+          if [ -z "${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" ]; then echo "WARNING: NEXT_PUBLIC_SUPABASE_URL is not set!"; else echo "OK: NEXT_PUBLIC_SUPABASE_URL is set."; fi
+          if [ -z "${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" ]; then echo "WARNING: NEXT_PUBLIC_SUPABASE_ANON_KEY is not set!"; else echo "OK: NEXT_PUBLIC_SUPABASE_ANON_KEY is set."; fi
+
       - name: Build with Next.js
         run: npm run build
         env:
