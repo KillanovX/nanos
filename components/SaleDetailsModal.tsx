@@ -253,27 +253,27 @@ export default function SaleDetailsModal({ sale, onClose }: SaleDetailsModalProp
                             <button onClick={() => setEditingId(null)} className="w-full text-[10px] text-text-tertiary hover:text-text uppercase font-bold">Cancelar</button>
                           </div>
                         ) : (
-                          <div className="flex items-center justify-between group">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
                             <div className="flex items-center gap-4">
-                              <div className="text-center min-w-[40px]">
-                                <p className="text-[10px] font-bold text-text-tertiary uppercase">Parc.</p>
-                                <p className="text-xs font-bold">{inst.installment_number}</p>
+                              <div className="text-center min-w-[40px] bg-surface-hover rounded-md p-1.5">
+                                <p className="text-[9px] font-bold text-text-tertiary uppercase">Parc.</p>
+                                <p className="text-xs font-bold text-accent">{inst.installment_number}</p>
                               </div>
                               <div>
-                                <p className="text-xs font-medium">{new Date(inst.due_date).toLocaleDateString('pt-BR')}</p>
-                                <p className="text-[10px] text-text-tertiary">Vencimento</p>
+                                <p className="text-sm font-medium">{new Date(inst.due_date).toLocaleDateString('pt-BR')}</p>
+                                <p className="text-[10px] uppercase tracking-wider text-text-tertiary">Vencimento</p>
                               </div>
                             </div>
 
-                            <div className="flex items-center gap-6">
-                              <div className="text-right">
-                                <p className="text-xs font-bold">{formatCurrency(inst.net_value)}</p>
-                                <p className="text-[10px] text-income">Líquido</p>
+                            <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto pt-3 sm:pt-0 border-t border-border/50 sm:border-0">
+                              <div className="text-left sm:text-right">
+                                <p className="text-sm font-bold font-display text-text">{formatCurrency(inst.net_value)}</p>
+                                <p className="text-[10px] text-income uppercase tracking-wider font-bold">Líquido</p>
                               </div>
                               
-                              <div className="flex items-center gap-3">
+                              <div className="flex items-center gap-2">
                                 <span className={cn(
-                                  "text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border",
+                                  "text-[10px] font-bold uppercase px-2.5 py-1 rounded-md border",
                                   inst.status === 'pago' ? "bg-income/10 text-income border-income/20" :
                                   new Date(inst.due_date) < new Date() ? "bg-expense/10 text-expense border-expense/20" :
                                   "bg-surface-elevated text-text-tertiary border-border"
@@ -282,20 +282,20 @@ export default function SaleDetailsModal({ sale, onClose }: SaleDetailsModalProp
                                 </span>
 
                                 {inst.status !== 'pago' && (
-                                  <div className="flex items-center gap-1 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                                  <div className="flex items-center gap-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                                     <button 
                                       onClick={() => startEdit(inst)}
-                                      className="p-1.5 rounded-md hover:bg-accent/10 text-text-tertiary hover:text-accent transition-colors"
+                                      className="h-8 w-8 flex items-center justify-center rounded-md border border-border bg-surface-elevated hover:bg-accent/10 text-text-tertiary hover:text-accent hover:border-accent/30 transition-colors"
                                       title="Adiar ou Pagar Parcial"
                                     >
-                                      <Pencil className="h-4 w-4" />
+                                      <Pencil className="h-3.5 w-3.5" />
                                     </button>
                                     <button 
                                       onClick={() => markAsPaid(inst.id)}
-                                      className="p-1.5 rounded-md hover:bg-income/10 text-text-tertiary hover:text-income transition-colors"
+                                      className="h-8 w-8 flex items-center justify-center rounded-md border border-border bg-surface-elevated hover:bg-income/10 text-text-tertiary hover:text-income hover:border-income/30 transition-colors"
                                       title="Marcar como Pago Integral"
                                     >
-                                      <CheckCircle2 className="h-4 w-4" />
+                                      <CheckCircle2 className="h-3.5 w-3.5" />
                                     </button>
                                   </div>
                                 )}

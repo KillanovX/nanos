@@ -63,7 +63,7 @@ export default function Sidebar({ isMobileOpen, onCloseMobile }: SidebarProps) {
           isMobileOpen ? "w-[280px] translate-x-0" : "w-[280px] -translate-x-full lg:translate-x-0"
         )}
       >
-        <div className="flex flex-col h-full py-6">
+        <div className="flex flex-col h-full pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           {/* Logo/Header */}
           <div className="px-6 mb-8 flex items-center justify-between h-8 overflow-hidden">
             <span className="font-display font-bold text-xl text-accent tracking-tight whitespace-nowrap">

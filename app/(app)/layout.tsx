@@ -51,7 +51,7 @@ export default function AppLayout({
           <ThemeToggle />
         </header>
 
-        <main className="flex-1 px-4 lg:px-8 pt-6 lg:pt-8 pb-10">
+        <main className="flex-1 px-4 lg:px-8 pt-6 lg:pt-8 pb-[max(2.5rem,env(safe-area-inset-bottom))]">
           <div className="max-w-7xl mx-auto">
             {children}
           </div>

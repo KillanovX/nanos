@@ -88,7 +88,7 @@ export default function ProductForm({ isOpen, onClose, onSuccess, product }: Pro
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
-            className="relative w-full max-w-md rounded-2xl border border-border bg-surface-elevated p-8 shadow-2xl"
+            className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl border border-border bg-surface-elevated p-6 sm:p-8 shadow-2xl"
           >
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold font-display tracking-tight text-text">

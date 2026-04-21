@@ -87,7 +87,7 @@ export default function ExpenseForm({ isOpen, onClose, onSuccess, expense }: Exp
           initial={{ opacity: 0, scale: 0.95, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 16 }}
-          className="relative w-full max-w-md rounded-2xl border border-border bg-surface p-8 shadow-2xl overflow-hidden"
+          className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl border border-border bg-surface p-6 sm:p-8 shadow-2xl"
         >
           {/* Glow effect */}
           <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
