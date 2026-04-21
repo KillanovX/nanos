@@ -13,14 +13,34 @@
   --color-text: #f5f5f5;
   --color-text-secondary: #a3a3a3;
   --color-text-tertiary: #666666;
-  --color-accent: #f0c95a;
-  --color-accent-hover: #f5d77a;
-  --color-income: #34d399;
-  --color-expense: #f87171;
+  --color-accent: #a3e635;
+  --color-accent-hover: #bef264;
+  --color-income: #22c55e;
+  --color-expense: #ef4444;
   --color-chart: #f5f5f5;
 }
 
 :root {
+  --color-background: #ffffff;
+  --color-surface: #f9f9f9;
+  --color-surface-hover: #f0f0f0;
+  --color-surface-elevated: #ffffff;
+  --color-border: #e5e5e5;
+  --color-border-hover: #d4d4d4;
+  --color-text: #050505;
+  --color-text-secondary: #525252;
+  --color-text-tertiary: #737373;
+  --color-accent: #84cc16;
+  --color-accent-hover: #65a30d;
+  --color-income: #16a34a;
+  --color-income-bg: rgba(22, 163, 74, 0.1);
+  --color-expense: #dc2626;
+  --color-expense-bg: rgba(220, 38, 38, 0.1);
+  --color-chart: #050505;
+  --color-card-glow: rgba(132, 204, 22, 0.05);
+}
+
+.dark {
   --color-background: #050505;
   --color-surface: #0d0d0d;
   --color-surface-hover: #151515;
@@ -30,14 +50,23 @@
   --color-text: #f5f5f5;
   --color-text-secondary: #a3a3a3;
   --color-text-tertiary: #666666;
-  --color-accent: #f0c95a;
-  --color-accent-hover: #f5d77a;
-  --color-income: #34d399;
-  --color-income-bg: rgba(52, 211, 153, 0.1);
-  --color-expense: #f87171;
-  --color-expense-bg: rgba(248, 113, 113, 0.1);
+  --color-accent: #a3e635;
+  --color-accent-hover: #bef264;
+  --color-income: #22c55e;
+  --color-income-bg: rgba(34, 197, 94, 0.1);
+  --color-expense: #ef4444;
+  --color-expense-bg: rgba(239, 68, 68, 0.1);
   --color-chart: #f5f5f5;
-  --color-card-glow: rgba(240, 201, 90, 0.06);
+  --color-card-glow: rgba(163, 230, 53, 0.06);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none transition-colors duration-200;
+  }
+  body {
+    @apply bg-background text-text;
+  }
 }
 
 @layer base {

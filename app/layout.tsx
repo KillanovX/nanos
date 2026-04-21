@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" className="dark" suppressHydrationWarning>
       <body className={`${manrope.variable} ${spaceGrotesk.variable} antialiased`}>
         {children}
       </body>
